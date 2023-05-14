@@ -1,7 +1,7 @@
 
 var Sr =1;
 var GrandTotal =0;
-
+const Grand =document.getElementById("total");
 var item = [
     {
       id: 111,
@@ -20,8 +20,8 @@ var item = [
     }
     ];
 var qtty =document.getElementsByClassName("qty");
-console.log(qtty.length);
-console.log(qtty);
+// console.log(qtty.length);
+// console.log(qtty);
 
 
 var addIntoList = ()=>{
@@ -57,6 +57,8 @@ var addInTable =(correctObj) =>{
     var Price = document.createElement("td");
     var Total = document.createElement("td");
 
+    Total.className="total";
+
 
 
 SR.innerHTML =Sr; // // // 
@@ -70,19 +72,20 @@ quantityInput.setAttribute("type", "number");
 quantityInput.setAttribute("min", "1");
 quantityInput.setAttribute("value", "1");
 quantityInput.setAttribute("class", "qty");
+ 
+
+// maare Onchange pr final total ne zero kri bdha td ne total maa add krvu chhe. 
 
 
-quantityInput.addEventListener("change",function(){
+quantityInput.addEventListener("change",()=>{
   
   var quantityValue = parseInt(quantityInput.value);
-  Total.innerHTML =productTotal(quantityValue,amount);
-  grandtotal(parseInt(Total.innerHTML) - parseInt(amount));
+  Total.innerHTML =productTotal(quantityValue,Price.innerHTML);
+updateGrand();
 })  ;
 
-var quantityValue = parseInt(quantityInput.value);
-  Total.innerHTML =productTotal(quantityValue,amount);
-grandtotal(parseInt(Total.innerHTML));
-
+quantity.appendChild(quantityInput);
+Total.innerHTML =productTotal(1,Price.innerHTML);
 
 // productTotal(quantity,amount);
 
@@ -93,6 +96,7 @@ tr.appendChild(quantity);
 tr.appendChild(Price);  
 tr.appendChild(Total);
 
+
 // console.log(Price.innerHTML);
 // Quantity.innerHTML =
 
@@ -101,15 +105,23 @@ tr.appendChild(Total);
     
 
     Sr++;
+    updateGrand();
 }
 var productTotal= (number,number2) => {
   
-  var ans = number*number2;
+  var ans = number*parseInt( number2);
   return ans;
 }
 
-var grandtotal=(number)=>{
-  GrandTotal+= number;
-  const Grand =document.getElementById("total");
+var updateGrand=(number)=>{
+  // console.log("change");
+  GrandTotal =0;
+  var classes =document.getElementsByClassName("total");
+
+ for(var i=0; i<classes.length; i++){
+  GrandTotal+= parseInt( classes[i].innerHTML);
+   };
+
   Grand.innerHTML = GrandTotal;
+
 }
