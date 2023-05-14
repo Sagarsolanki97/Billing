@@ -1,0 +1,16 @@
+mistake :     var itemCode = document.getElementById("Number").value;
+written outside function , due to scope range unable to print input .value
+
+
+// selectElement.forEach((event)=>{
+        //     addEventListener("change",(event) => {
+        //         console.log(event.target.value)
+        //     })
+        //   });
+        //   var selectchange = document.getElementById("selection");
+        //   selectchange.addEventListener(onchange,)
+
+
+        //    var total = selectedValue*parseInt(item.MRP);
+        //    console.log(total);
+   

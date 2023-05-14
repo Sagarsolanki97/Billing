@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dmart</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+    <div class="container">
+        <section class="input">
+            <div>
+                <label for="number">Item code:</label>
+                <input type="number" id="Number">
+            </div>
+            <button id="add_to_list" onclick="addIntoList()">Add to list</button>
+        </section>
+
+        <section class="list">
+            <table id="table">
+                <thead>
+                <tr>
+                    <th>Sr.no.</th>
+                    <th>Code</th>
+                    <th>Name</th>
+                    <th>Qty</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody id="tableData">  
+            </tbody>
+            </table>
+        </section>
+        <br>
+<div class="amount"><STRONG>
+    TOTAL AMOUNT TO PAY : <span id="total"></span></STRONG>
+</div>
+
+    </div>
+    <!-- <script src="js.js"></script> -->
+    <script src="js1.js"></script>
+</body>
+</html>
